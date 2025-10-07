@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Menu</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        color: #4B2E05;
+        background-color: #F8EBDD;
+    }
+
+   
+    .menu-nav {
+        position: sticky;
+        top: 0;
+        background: #FFF8F0;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        z-index: 10;
+    }
+
+    .menu-nav a {
+        text-decoration: none;
+        color: #4B2E05;
+        font-weight: 600;
+        margin: 0 15px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        transition: 0.3s;
+    }
+
+    .menu-nav a:hover {
+        background-color: #D4A017;
+        color: white;
+    }
+
+    section {
+        padding: 60px 20px;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    section h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+        color: #4B2E05;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .product-card {
+        background-color: #FFF8F0;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .product-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .product-card h3 {
+        margin: 15px 0 10px;
+        color: #4B2E05;
+    }
+
+    .product-card p {
+        color: #6B4B16;
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+    }
+
+    .add-btn {
+        background-color: #D4A017;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    .add-btn:hover {
+        background-color: #b88c13;
+    }
+
+    .add-btn.added {
+        background-color: #4B2E05;
+        color: #F8EBDD;
+        cursor: default;
+    }
+
+    .add-btn.added::after {
+        content: " ✓";
+    }
+
+    /* Background colors per section */
+    #pizzas { background-color: #F8EBDD; }
+    #pastas { background-color: #F5E2C8; }
+    #drinks { background-color: #E3F0F5; }
+    #desserts { background-color: #F7E3E8; }
+
+    @media (max-width: 768px) {
+        section h2 { font-size: 1.6em; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<div class="menu-nav">
+    <a href="index.html">Back Home</a>
+    <a href="#pizzas">Pizzas</a>
+    <a href="#pastas">Pastas</a>
+    <a href="#drinks">Drinks</a>
+    <a href="#desserts">Desserts</a>
+</div>
+
+<section id="pizzas" class="fade-section">
+    <h2>Our Signature Pizzas</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="img/pizzapic.jpg" alt="Margherita Pizza">
+            <h3>Margherita</h3>
+            <p>Classic pizza with fresh basil, mozzarella, and tomato sauce</p>
+            <button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Pepperoni Delight Pizza">
+            <h3>Pepperoni Delight</h3>
+            <p>Spicy pepperoni with rich cheese and tangy sauce</p>
+            <button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button>
+        </div>
+        <div class="product-card">
+            <img src="img/pizzapic3.jpg" alt="Quattro Formaggi Pizza">
+            <h3>Quattro Formaggi</h3>
+            <p>A blend of four cheeses for the ultimate cheesy experience</p>
+            <button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47" alt="Veggie Supreme Pizza">
+            <h3>Veggie Supreme</h3>
+            <p>Fresh vegetables with mozzarella and tomato sauce</p>
+            <button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button>
+        </div>
+        <div class="product-card">
+            <img src="img/pizzapic4.jpg" alt="Mushroom Truffle Pizza">
+            <h3>Mushroom Truffle</h3>
+            <p>Wild mushrooms with truffle oil and creamy mozzarella</p>
+            <button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button>
+        </div>
+        <div class="product-card">
+            <img src="img/Pizza Recipes.jpg" alt="BBQ Chicken Pizza">
+            <h3>BBQ Chicken</h3>
+            <p>Grilled chicken with BBQ sauce and red onions</p>
+            <button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c" alt="Pesto Verde Pizza">
+            <h3>Pesto Verde</h3>
+            <p>Fresh pesto with cherry tomatoes and mozzarella</p>
+            <button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707" alt="Seafood Delight Pizza">
+            <h3>Seafood Delight</h3>
+            <p>Shrimp and calamari with garlic and lemon zest</p>
+            <button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button>
+        </div>
+    </div>
+</section>
+
+
+<section id="pastas" class="fade-section">
+    <h2>Our Special Pastas</h2>
+    <div class="product-grid">
+        <div class="product-card"><img src="img/pasta1.jpg"><h3>Spaghetti Carbonara</h3><p>Rich creamy sauce with pancetta & parmesan</p><button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button></div>
+        <div class="product-card"><img src="img/pasta2.jpg"><h3>Alfredo Fettuccine</h3><p>Creamy white sauce with butter and garlic</p><button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button></div>
+        <div class="product-card"><img src="img/pasta3.jpg"><h3>Seafood Linguine</h3><p>Prawns, mussels, and squid tossed with herbs</p><button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button></div>
+        <div class="product-card"><img src="img/pasta4.jpg"><h3>Lasagna</h3><p>Classic layered pasta with meat and cheese</p><button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button></div>
+    </div>
+</section>
+
+<section id="drinks" class="fade-section">
+    <h2>Refreshing Drinks</h2>
+    <div class="product-grid">
+        <div class="product-card"><img src="img/drink1.jpg"><h3>Lemonade</h3><p>Freshly squeezed lemons with mint</p><button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button></div>
+        <div class="product-card"><img src="img/drink2.jpg"><h3>Coffee</h3><p>Chilled smooth coffee for coffee lovers</p><button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button></div>
+        <div class="product-card"><img src="img/drink3.jpg"><h3>Berry Smoothie</h3><p>Mixed berries blended with yogurt</p><button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button></div>
+        <div class="product-card"><img src="img/drink4.jpg"><h3>Mojito</h3><p>Classic minty and lime refreshing drink</p><button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button></div>
+    </div>
+</section>
+
+
+<section id="desserts" class="fade-section">
+    <h2>Sweet Desserts</h2>
+    <div class="product-grid">
+        <div class="product-card"><img src="img/dessert1.jpg"><h3>Tiramisu</h3><p>Classic Italian dessert with mascarpone & cocoa</p><button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button></div>
+        <div class="product-card"><img src="img/dessert2.jpg"><h3>Cheesecake</h3><p>Rich creamy cheesecake with a biscuit base</p><button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button></div>
+        <div class="product-card"><img src="img/dessert3.jpg"><h3>Chocolate Lava Cake</h3><p>Warm chocolate cake with gooey center</p><button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button></div>
+        <div class="product-card"><img src="img/dessert4.jpg"><h3>Panna Cotta</h3><p>Silky smooth vanilla dessert with berries</p><button class="add-btn" onclick="addToCart(this)">🛒 Add to cart</button></div>
+    </div>
+</section>
+
+<script>
+function addToCart(button) {
+    button.textContent = "In your cart";
+    button.classList.add("added");
+    button.disabled = true;
+}
+
+const sections = document.querySelectorAll('.fade-section');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
